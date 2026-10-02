@@ -1,14 +1,20 @@
 # Smooth Slides
 
-A free, shareable workflow for reviewing and fixing Olympiad practice-test slide decks
-(Google Slides or PowerPoint) with [Claude Code](https://claude.com/claude-code).
+A free, shareable workflow for reviewing, fixing and **building** Olympiad practice-test slide
+decks (Google Slides or PowerPoint) with [Claude Code](https://claude.com/claude-code).
+
+It installs two skills:
+
+- **`olympiad-deck-review`** checks an existing deck: it solves every question, finds wrong keys and
+  bad working, and fixes a copy.
+- **`deck-builder`** (pilot) builds a new class deck from a topic and grade, then checks it with the review skill.
 
 It was put together by a teacher who reviews practice-test decks for content creators, and is
 shared pro bono. If you build question decks, you can use it to check your own work before
 it reaches students.
 
-**This repo contains no decks, no questions and no student data.** Every example in it is
-made up. Bring your own deck.
+**This repo contains no creators' decks, no client questions and no student data.** The only
+questions are original examples written for this repo. Bring your own deck.
 
 ---
 
@@ -94,8 +100,28 @@ Two rules sit above everything else:
 | `skills/olympiad-deck-review/templates/` | Fill-in templates: Review, Fixes Log, Verified Solutions (each with a made-up example) |
 | `skills/olympiad-deck-review/tools/pptx_fixer/` | Safe python-pptx helpers: fix text split across runs, move or clone shapes, add click animations, swap images |
 | `skills/olympiad-deck-review/tools/gslides_builder/` | Helpers that build Google Slides API requests, for the Google Slides connector route |
+| `skills/deck-builder/` | The deck-builder skill (pilot): `SKILL.md`, `scripts/deckkit.py`, draft figures, a full example |
 | `skills/README.md` | Installing without the plugin system (copy the folder by hand) |
 | `CLAUDE.md.template` | Starter project instructions for Claude Code |
+
+---
+
+## Building a new deck (pilot)
+
+Ask Claude something like:
+
+> Use the deck-builder skill: make a Grade 7 class deck on acids and bases, 3 sub-topics,
+> in the style of `my-latest-deck.pptx`.
+
+It follows the usual class flow for each sub-topic (hook question → theory → 2–3 more questions →
+revision). It shows one thing per click, keeps each solution slide in the same layout as its
+question, puts worked solutions in the speaker notes and checks every answer key before building.
+See `skills/deck-builder/scripts/example_acids_bases.py` for a full 34-slide example.
+
+> ⚠️ **This is a rudimentary pilot. It shows the build and review loop; it is not a finished-art pipeline.**
+> Pictures are flagged as orange **ART NEEDED** boxes with a one-line brief, and the few figures Claude
+> draws carry a **DRAFT** tag. Better diagrams can be made by prompting a separate image or diagram
+> bot with those briefs, or by your art team.
 
 ---
 

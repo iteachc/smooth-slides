@@ -1,9 +1,18 @@
 {
   "name": "smooth-slides",
-  "version": "1.0.0",
-  "description": "Review practice-test slide decks with Claude Code: verify answer keys from rendered slides, write a Review and Fixes Log for creators, and apply content fixes to a copy of the .pptx.",
-  "author": { "name": "iteachc" },
+  "version": "1.1.0",
+  "description": "Review, fix and build practice-test slide decks with Claude Code: verify answer keys from rendered slides, write a Review and Fixes Log for creators, apply content fixes to a copy of the .pptx, and (pilot) generate new class decks from a topic.",
+  "author": {
+    "name": "iteachc"
+  },
   "repository": "https://github.com/iteachc/smooth-slides",
   "license": "MIT",
-  "keywords": ["teaching", "slides", "pptx", "review", "olympiad"]
+  "keywords": [
+    "teaching",
+    "slides",
+    "pptx",
+    "review",
+    "olympiad",
+    "deck-builder"
+  ]
 }

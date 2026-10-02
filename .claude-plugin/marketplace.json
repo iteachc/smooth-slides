@@ -4,13 +4,13 @@
     "name": "iteachc"
   },
   "metadata": {
-    "description": "Claude Code workflow for reviewing and fixing practice-test slide decks."
+    "description": "Claude Code workflow for reviewing, fixing and building practice-test slide decks."
   },
   "plugins": [
     {
       "name": "smooth-slides",
       "source": "./",
-      "description": "Practice-test deck review workflow: playbook, gotchas, templates and python-pptx fixing tools, packaged as one skill."
+      "description": "Practice-test deck review (playbook, gotchas, templates, python-pptx tools) plus a pilot deck-builder skill."
     }
   ]
 }
