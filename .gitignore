@@ -1,0 +1,18 @@
+# Never commit decks or exports: they are usually the creator's property.
+*.pptx
+*.ppt
+*.potx
+*.pdf
+*.xlsx
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.skill
+# Generated working files
+__pycache__/
+*.pyc
+b*.json
+example_slide.json
+out/
+.claude/
