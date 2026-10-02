@@ -1,0 +1,50 @@
+# CLAUDE.md: practice-test deck review workspace
+<!-- Copy this file to CLAUDE.md in your project folder and fill in the <...> parts. -->
+
+This folder holds practice-test slide decks (<subject>, Grades <x>-<y>) that get reviewed,
+error-checked and corrected before they reach students. Decks arrive one at a time.
+
+Who is who: the **creators** build the decks; I am the **reviewer**. <Edit to suit.>
+
+## Read these first
+- `PLAYBOOK.md`: the full operating manual. Follow it; do not re-derive the workflow.
+- `GOTCHAS.md`: mistakes to avoid.
+- The `olympiad-deck-review` skill (if installed): use it for any practice-test .pptx.
+
+## Non-negotiable rules
+1. **Solve every question before reading the answer key.**
+2. **Derive answer keys from the RENDERED slides**, not the text export. Option letters come out
+   in layer order, not on-screen order.
+3. **Check figures visually.** Real errors hide in pictures. Zoom in.
+4. **Check hidden slides.** LibreOffice leaves them out of the PDF, so page numbers shift.
+5. **Never overwrite the original.** Save each pass as a new file with a version tag, e.g.
+   `<deck> (reviewed v2 - content fixes).pptx`.
+6. **Only fix content errors, and call out every fix** (including image fixes, with an honest
+   "best effort" note). Do not restyle or redesign.
+7. **Keep the creators' animations.** Do not rebuild picture-plus-black-mask reveals as text.
+   Add new shapes *with* an existing click, never as an extra click.
+8. **Arrows and tick marks go in an Arial run.**
+9. Make XML edits with a whole-file read, replace and write script (validate before saving);
+   the Edit tool can silently cut large XML files.
+
+## Tools
+- Python 3 with `python-pptx` and `pillow`.
+- LibreOffice (`soffice --headless --convert-to pdf`) and Poppler (`pdftoppm`) for rendering.
+- `tools/pptx_fixer/` for text, shape, animation and image fixes.
+- `tools/gslides_builder/`: only if you use the Google Slides connector for small edits.
+
+## Deliverables
+- **Review** (for creators): `templates/review.md`
+- **Fixes Log** (for creators): `templates/fixes-log.md`
+- **Verified Solutions** (for the teacher, only if asked): `templates/verified-solutions.md`
+- Solutions go in the **speaker-notes pane** of each question, not on the slide, unless asked
+  for worked-solution slides.
+
+## Preferences
+<!-- Add yours: tone, session length, naming conventions, subjects you are strong or weak in. -->
+- Concise and direct. Lead with the finding.
+- <e.g. Assume no background in biology; explain at concept level.>
+
+## Current state
+<!-- Keep a short list of decks in progress and open issues, so a new session can pick up. -->
+- <deck name>: <status, open issues>
