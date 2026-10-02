@@ -6,18 +6,12 @@ description: Review and verify Olympiad or practice-test slide decks (.pptx). Us
 # Olympiad Deck Review
 
 Workflow for reviewing practice-test decks and producing correction feedback or teaching material.
-The full manual is `PLAYBOOK.md` in the project folder. If it exists, read it first and follow it.
-This skill is the short version.
+This skill is the short version. Everything else lives in this skill's own folder; read files from there as needed:
 
-## How to install this skill
-
-Claude Code looks for skills in a `skills/<name>/SKILL.md` file:
-
-- **For one project:** copy the folder `olympiad-deck-review` into `<your project>/.claude/skills/`.
-- **For all your projects:** copy it into `~/.claude/skills/` (on Windows: `C:\Users\<you>\.claude\skills\`).
-
-Restart Claude Code. The skill is then used automatically when you ask to review a practice-test
-deck, or you can say "use the olympiad-deck-review skill".
+- `PLAYBOOK.md`: the full manual. Read it before the first review in a session.
+- `GOTCHAS.md`: mistakes that bite everyone once. Read it before extracting or fixing.
+- `templates/`: Review, Fixes Log, Verified Solutions.
+- `tools/`: python-pptx and Google Slides helpers (see below).
 
 ## Ask first
 
@@ -82,7 +76,7 @@ Step 3 matters most. Reading the key first anchors you and you will rationalise 
 
 Tone: colleague, not adversary. Say what is wrong, show it, propose the fix. Leave out teaching scripts.
 
-## Tools in this repo
+## Tools in this skill's folder
 
 - `tools/pptx_fixer/`: `dump_deck.py` (extract), `pptx_fixer.py` (safe text replace, move, clone, animate, replace image), `example_fix.py`.
 - `tools/gslides_builder/`: build Google Slides API requests, for small connector-based edits.
