@@ -7,9 +7,9 @@ error-checked and corrected before they reach students. Decks arrive one at a ti
 Who is who: the **creators** build the decks; I am the **reviewer**. <Edit to suit.>
 
 ## Read these first
-- `PLAYBOOK.md`: the full operating manual. Follow it; do not re-derive the workflow.
-- `GOTCHAS.md`: mistakes to avoid.
-- The `olympiad-deck-review` skill (if installed): use it for any practice-test .pptx.
+- The `olympiad-deck-review` skill (from the smooth-slides plugin): use it for any practice-test .pptx.
+  Its folder holds `PLAYBOOK.md` (the full manual; follow it, do not re-derive the workflow)
+  and `GOTCHAS.md` (mistakes to avoid).
 
 ## Non-negotiable rules
 1. **Solve every question before reading the answer key.**

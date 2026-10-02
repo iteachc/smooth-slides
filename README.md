@@ -31,7 +31,7 @@ the fixes are safe and repeatable.
 ```
 1. DOWNLOAD   Get the deck as .pptx (Google Slides: File > Download > Microsoft PowerPoint)
       |
-2. REVIEW     Claude follows PLAYBOOK.md:
+2. REVIEW     Claude follows the skill's PLAYBOOK.md:
       |         - solves EVERY question first, before reading the answer key
       |         - reads figures from RENDERED slide images, never from the text export
       |         - checks hidden slides, layout, arithmetic on solution slides
@@ -60,18 +60,26 @@ Two rules sit above everything else:
 
 ## Quick start
 
-1. Install Claude Code and open a terminal in a new, empty project folder.
-2. Copy `CLAUDE.md.template` into that folder as `CLAUDE.md` and fill in the blanks.
-3. Copy `PLAYBOOK.md` into the folder. Optionally install the skill (see `skills/README.md`).
+1. Install Claude Code and open it in a new, empty project folder.
+2. Install the plugin (once per computer). In Claude Code, type:
+
+   ```
+   /plugin marketplace add iteachc/smooth-slides
+   /plugin install smooth-slides@smooth-slides
+   ```
+
+   This brings in the whole workflow (playbook, gotchas, templates, tools) as one skill.
+   Restart Claude Code if it asks.
+3. Optional: copy `CLAUDE.md.template` into your folder as `CLAUDE.md` and fill in the blanks.
 4. Install the tools Claude needs:
    - Python 3 and `pip install python-pptx pillow`
    - LibreOffice (to turn the deck into a PDF) and `pdftoppm` (from Poppler) to turn PDF pages into images
 5. Put the downloaded `.pptx` in the folder and tell Claude:
 
-   > Read PLAYBOOK.md, then review `my-deck.pptx`. I want a Review and a Fixes Log for the creators.
+   > Use the olympiad-deck-review skill on `my-deck.pptx`. I want a Review and a Fixes Log for the creators.
 
 6. Read what Claude found. Then say which fixes you want applied. Claude writes a fix script
-   (start from `tools/pptx_fixer/example_fix.py`), saves a new file, and renders it for checking.
+   (starting from the skill's `tools/pptx_fixer/example_fix.py`), saves a new file, and renders it for checking.
 
 ---
 
@@ -79,13 +87,15 @@ Two rules sit above everything else:
 
 | Path | What it is |
 |---|---|
-| `PLAYBOOK.md` | The full operating manual Claude follows: extraction, rendering, solving, auditing, write-ups |
-| `GOTCHAS.md` | Short list of mistakes that bite everyone once. Read this first |
+| `.claude-plugin/` | Makes this repo installable as a Claude Code plugin |
+| `skills/olympiad-deck-review/SKILL.md` | The workflow Claude follows (short version) |
+| `skills/olympiad-deck-review/PLAYBOOK.md` | The full operating manual: extraction, rendering, solving, auditing, write-ups |
+| `skills/olympiad-deck-review/GOTCHAS.md` | Short list of mistakes that bite everyone once. Read this first |
+| `skills/olympiad-deck-review/templates/` | Fill-in templates: Review, Fixes Log, Verified Solutions (each with a made-up example) |
+| `skills/olympiad-deck-review/tools/pptx_fixer/` | Safe python-pptx helpers: fix text split across runs, move or clone shapes, add click animations, swap images |
+| `skills/olympiad-deck-review/tools/gslides_builder/` | Helpers that build Google Slides API requests, for the Google Slides connector route |
+| `skills/README.md` | Installing without the plugin system (copy the folder by hand) |
 | `CLAUDE.md.template` | Starter project instructions for Claude Code |
-| `skills/` | The review workflow as a Claude Code skill, and how to install it |
-| `templates/` | Fill-in templates: Review, Fixes Log, Verified Solutions (each with a made-up example) |
-| `tools/pptx_fixer/` | Safe python-pptx helpers: fix text split across runs, move or clone shapes, add click animations, swap images |
-| `tools/gslides_builder/` | Helpers that build Google Slides API requests, for the Google Slides connector route |
 
 ---
 
@@ -97,7 +107,7 @@ works on whole decks, keeps your animations, and never touches the original.
 **Route B: Google Slides connector.** Claude can read and edit a Google Slides file directly
 through a connector. Worth it for **small edits only** (a typo, a number, one text box).
 It is slow for whole slides: every shape is a separate request, and big decks are
-awkward to export. For anything bigger, use Route A. `tools/gslides_builder/` is for the
+awkward to export. For anything bigger, use Route A. The skill's `tools/gslides_builder/` is for the
 cases where you do need to build a new slide through the connector.
 
 ---

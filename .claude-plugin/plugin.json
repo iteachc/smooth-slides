@@ -1,0 +1,9 @@
+{
+  "name": "smooth-slides",
+  "version": "1.0.0",
+  "description": "Review practice-test slide decks with Claude Code: verify answer keys from rendered slides, write a Review and Fixes Log for creators, and apply content fixes to a copy of the .pptx.",
+  "author": { "name": "iteachc" },
+  "repository": "https://github.com/iteachc/smooth-slides",
+  "license": "MIT",
+  "keywords": ["teaching", "slides", "pptx", "review", "olympiad"]
+}

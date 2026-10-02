@@ -1,0 +1,16 @@
+{
+  "name": "smooth-slides",
+  "owner": {
+    "name": "iteachc"
+  },
+  "metadata": {
+    "description": "Claude Code workflow for reviewing and fixing practice-test slide decks."
+  },
+  "plugins": [
+    {
+      "name": "smooth-slides",
+      "source": "./",
+      "description": "Practice-test deck review workflow: playbook, gotchas, templates and python-pptx fixing tools, packaged as one skill."
+    }
+  ]
+}
